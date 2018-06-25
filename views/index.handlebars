@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Cheerio NYT Scraper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home
+                <span class="sr-only">(current)</span>
+            </a>
+            <a href="/scrape" class="btn active" role="button" aria-pressed="true">Scrape NYT</a>
+            <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container-fluid">
+        <div class="jumbotron text-center background-image">
+            <div class="overlay">
+
+                    <h1 class="display-1 text-white">Cheerio NYT Scraper</h1>
+
+            </div>
+        </div>
+    <div class=row>
+        <div class="col-12">
+            {{#if articles}}
+            {{#each articles}}
+                <div class="card">
+                    <div class="card-header text-white bg-secondary">
+                        <a href={{link}} target="_blank" class="text-white">
+                            <h3>{{title}}</h3>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{summary}}
+                        </p>
+                        <button id="{{_id}}" class="btn btn-info save-btn">Save Article</button>
+                    </div>
+                </div>
+            {{/each}}
+            {{else}}
+                <div class="card text-white bg-info p-1">
+                    <div class="card-body text-center">
+                        <h3>Click the Scrape NYT button above</h3>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
